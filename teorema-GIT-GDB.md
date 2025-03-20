@@ -31,7 +31,7 @@ el estado "head detached" quiere decir "cabeza desprendida" o "desacoplado" , y 
   con el historial limpio de dicha rama
 
 
-+ \\commit HUERFANO\\ si quiero trabajar sobre un archivo en especifico sin afectar de ninguna manera ese archivo de esa rama en especifico 
+ + \\commit HUERFANO\\ si quiero trabajar sobre un archivo en especifico sin afectar de ninguna manera ese archivo de esa rama en especifico 
   me sirve realizar cambios a ese archivo estando en estado DETACHED y commitear / guardar / crear una nueva rama sobre el . 
   de esta manera esa rama no tendra "padres" y tendra un historial limpio sin arrastrar los demas 
 
@@ -312,3 +312,34 @@ Si hay actualizaciones en la rama remota (como origin/main), podrás verlas, per
 \\cat \\ te permite leer / copiar , el contenido de un archivo 
 
 \\history -"numero que quieres que muestre ('n')"\\ este comando te permite observar los 'n' ultimos comandos comandos 
+
+
+==========================================================================================================================================
+
+                                                [GDB DEPURADOR] - comandos
+
+para utilizar el depurador gdb hay que coompilarl el archivo con \\[gcc -g archivo.c -o nuevo-nombre.exe]\\ el modificador "-g" genera 
+una copia de tu programa ejecutable para poder depurarlo .
+
+                                            📌 Iniciar y preparar la depuración: 
+##  gdb ./programa    
+    - Inicia GDB con tu programa compilado
+##  run                
+    - Ejecuta el programa hasta el primer breakpoint
+# set args arg1 arg2
+    - Pasa argumentos al programa  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
