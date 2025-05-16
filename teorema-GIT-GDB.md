@@ -322,18 +322,17 @@ para utilizar el depurador gdb hay que coompilarl el archivo con \\[gcc -g archi
 una copia de tu programa ejecutable para poder depurarlo .
 
                                             📌 Iniciar y preparar la depuración: 
-##  gdb ./programa    
-    - Inicia GDB con tu programa compilado
-##  run                
-    - Ejecuta el programa hasta el primer breakpoint
+##  gdb ./programa.ejecutable    
+    - Inicia GDB con tu programa compilado o usa "./programa" para simplemente ejecutarlo
+##  run ||                 
+    - Ejecuta el programa en gdb --  hasta el primer breakpoint
 # set args arg1 arg2
     - Pasa argumentos al programa  
 
+                                            🛠️ Control del flujo de ejecución:
 
-
-
-
-
+##  BREAK POINT 
+    - 
 
 
 
