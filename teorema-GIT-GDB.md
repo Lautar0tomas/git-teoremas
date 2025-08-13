@@ -273,7 +273,7 @@ ssh-add ~/.ssh/id_ed25519 &> /dev/null
 al ejecutar git fetch
 Se conecta al repositorio remoto (por ejemplo, origin).
 Descarga los últimos cambios, como nuevas ramas o commits.
-No cambia tu rama actual ni te incorpora esos cambios automáticamente.
+No cambia tu rama actual ni te incorpora esos cambios automáticamente. 
 Si hay actualizaciones en la rama remota (como origin/main), podrás verlas, pero tu rama local no se actualiza hasta que hagas un git merge o git rebase.
 
 
@@ -309,7 +309,7 @@ Si hay actualizaciones en la rama remota (como origin/main), podrás verlas, per
 
 \\helpp\\ comando alias que me permite ver los comandos mas utilizados por mi , para editar , en /home/blas "~" , dentro del archivo ".comandos-mi-guia.txt"
 editalo con "nano .. .. . "
-
+                                          
 \\tree\\ equivalente a "ls" con mejor distribucion , y el modificador -a para ver directorio oculto
 
 \\cat \\ te permite leer / copiar , el contenido de un archivo 
