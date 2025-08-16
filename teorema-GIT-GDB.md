@@ -5,7 +5,7 @@ main avanza automaticamente al nuevo commit
 HEAD se puede mover pero la rama main sigue apuntando a su ultimo commit 
 el estado "head detached" quiere decir "cabeza desprendida" o "desacoplado" , y te permite observar esa linea temporal 
 
-[propiedades-a-tener-muy-en-cuenta]
+[propiedades-a-tener-muy-en-cuenta]{
 {1ero} 
 - HEAD -> main : "aqui HEAD esta apuntando a la rama ACTIVA , lo que significa que cualquier commit que hagas se agregara a esta rama(main) 
    avanzando la misma "
@@ -51,7 +51,46 @@ no ese archivo en concreto , por eso se crea otra "main(rama)"
 
 890Blas (head -> main) 
 \\como ves , yo quise regresar del archivo "123Lautaro" a "890Blas" pero termine afectando a "567MIli"\\
+}
 
+
+[ORDEN-DE-GIT]{
+    tenes lo siguiente : "~/proyecto/d1-d2 y en d1/d3 y d2/d4" en "proyecto" se encuentra el ".git" 
+    el "add" y "commit" afectan diferentes a cada directorio: 
+
+**1ero**para definir lo que hace (git add .) hay que entender los (_directorios_) , el directorio que tiene subdirectorios 
+es (_directorio padre_) [por ejemplo el "d1"] asi asu vez , este tiene hermano [" d2 "] y la subcarpeta "d3" seria el (_directorio hijo_)
+de "d1" y asu vez estos directorios son subcarpetas de "proyecto", osea que este directorio , es el (_directorio padre de esos directorios_)
+como das a entender , ningun directorio es "padre definitivo de todos" pero si son "padres de algunos" entonces : 
+
+ el "." del " add "  osea al hacer "git add ." staguea archivos que sean hijos del directorio donde te encuentres ,
+ si hiciste cambios en "proyecto/archivo.txt y proyecto/d1/archivo.txt" si te encontras en "proyecto/d1"
+y haces un "git add ." staguea unicamente a los hijos (archivos y subcarpetas) del directorio "d1" asi no a sus (_hermanos_ ni _padres_)
+(ni a d2/archivo.txt ni a "proyecto/archivo.txt") , agregaria al stague a (d1/archivo.txt y d1/d3 si hay cambios ah y ).
+
+por eso podes hacer un (git add .) desde "proyecto" si tienes cambios en diferentes repositorios , debido a que es el directorio padre que 
+contiene los cambios de cada subdirectorio y necesitarias un solo "git add ." "."-> (archivos/directorios hijos_) y se commitearia lo
+que hay en el area de (_stage_) osea , todos los cambios del "proyecto y sus subdirectorios" , asi no su hermano si es que lo tiene 
+
+o puedes unir en el (_stage_) con (git add .) en cada directorio y luego commitear una sola vez en cualquier repositorio donde estes 
+barado , ya que el "commit -m".." " se registra en el repo definido por el (.git) osea el (_~/proyecto_)
+
+si haces varios cambios en diferentes directorios de un proyecto y haces un "git status " para ver el area de (_stage_)
+aparecera algo como "modificados ../../../archivo" es porque este archivo ah sido modificado pero no stagueado entonces 
+necesitaras "subir" 3 directorios (1/2/3) 
+
+pero ojo con el termino "subir" porque en realidad se refiere a subir de jerarquia (de hijo a padre y del padre al padre) ya 
+que el "add ." significa directorio actual hacia abajo (sus hijos _subcarpetas_), no hacia arriba sus padres ni a hermanos.
+entonces al decir subir se piensa en esto "1 -> 2 -> 3" y enrealidad se refiere a esot "1 <- 2 <- 3 " en el caso de los directorios
+
+
+**2do** si tenes ~/proyecto/d1/d3/otroPROYECTo [(.git en proyecto y otro .git en otroPROYECTo)] y hacer un "git add ." en "~/proyecto" auque (_otroPROYECTO_) sea hijo de "poryecto" , 
+los cambios que hayan en (_otroPROYECTO_) necesitaran su propio "git add ." y su propio "git commit -m "" "
+Dicho de otra manera:
+proyecto y otroPROYECTO son repos distintos
+Uno no ve los cambios del otro, aunque estén anidados en carpetas.
+    
+}
 
 
 // [] = uso obligatorio de argumentos 
@@ -68,7 +107,8 @@ no ese archivo en concreto , por eso se crea otra "main(rama)"
 # git status || (nombre-Del-Archivo)
     -muestra el estado de aquellos que no tienen seguimiento (los que no esten en git) 
         - te muestra si hay archivos para agregar al area de stage 
-            - y/o si si estan listos para ser committeados
+            - y/o si si estan listos para ser committeados , de lo contrario , no se podran (en verde se pueden,  y en rojo no estan en stage)
+
 
 
 # git add [archivo.extencion] || ( . ) || git add -u 
