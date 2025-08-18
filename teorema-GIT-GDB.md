@@ -128,6 +128,15 @@ Uno no ve los cambios del otro, aunque estén anidados en carpetas.
 
         (1)- permite modificar la descripcion de tu ultimo commit teniendo en cuenta que 
         no se ah pusheado 
+{
+con cada commit , su descripcion puesta en el ( -m "" ) , sera visible en github unicamente en los archivo modificado ,
+ej _ si modificaste "fundamentos.c" y tenes mas archivos en el repo "d1" , "d2" etc , y hacer "add . " y "commit -m" ,
+al subirlo "push" , la descripcion sera vinculada al o los archivos modificados .
+
+eso si , si modificaste muchos archivos , y necesitas una descripcion para cada uno , entonces , o adieres al 
+area de stage de a uno (git add archivo.extencion) y lo commiteas de a uno , o a medida que vas modificando archivos
+vas adiriendolos y commiteandolos (no hace falta pushear en el momento)
+                                                                        }
 
 
 
